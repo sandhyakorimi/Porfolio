@@ -226,9 +226,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import oneStopImage from '@/assets/project-onestop.jpg';
-import eventoraImage from '@/assets/project-eventora.jpg';
-import etrackImage from '@/assets/project-etrack.jpg';
+import oneStopImage from '@/assets/project-OneStop.png';
+import eventoraImage from '@/assets/project-eventora.png';
+import etrackImage from '@/assets/project-Etrack.png';
 
 const Projects = () => {
   const projects = [
@@ -273,7 +273,7 @@ const Projects = () => {
         'Real-time updates',
         'Automated logs'
       ],
-      liveUrl: '#',
+      liveUrl: 'https://e-track-project.vercel.app/',
       githubUrl: 'https://github.com/sandhyakorimi/Etrack_Management'
     }
   ];
