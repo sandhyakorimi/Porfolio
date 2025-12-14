@@ -29,190 +29,174 @@ const Experience = () => {
     ]
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section id="experience" className="section-padding bg-background">
-      <div className="max-w-7xl mx-auto container-padding">
+    <section id="experience" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 py-20">
+      {/* Animated Background Blobs */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-cyan-600/20 blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 left-0 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-ping-slow"></div>
+        <div className="absolute bottom-32 right-0 w-80 h-80 bg-cyan-500/30 rounded-full blur-3xl animate-ping-slow delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/30 rounded-full blur-3xl animate-ping-slow delay-2000"></div>
+      </div>
+
+      {/* Glass Overlay */}
+      <div className="absolute inset-0 backdrop-blur-xl bg-black/40"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Professional Experience
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Professional{' '}
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Experience
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-accent mx-auto rounded-full mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My hands-on training experience in full-stack development has equipped me with practical skills and real-world project experience
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+            Hands-on training in full-stack development with real-world projects and measurable impact
           </p>
         </motion.div>
 
         {/* Experience Card */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-5xl mx-auto"
         >
           <motion.div
-            variants={itemVariants}
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.3 }}
-            className="gradient-card rounded-3xl p-8 md:p-12 shadow-card hover:shadow-card-hover border border-card-border relative overflow-hidden"
+            whileHover={{ y: -12, scale: 1.01 }}
+            className="relative group"
           >
-            {/* Background Elements */}
-            <div className="absolute top-4 right-4 w-24 h-24 bg-accent/5 rounded-full animate-float" />
-            <div className="absolute bottom-4 left-4 w-16 h-16 bg-primary/5 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+            {/* Hover Glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center shadow-glow">
-                  <Briefcase className="w-8 h-8 text-accent" />
-                </div>
-              </div>
-              
-              <div className="flex-grow">
-                <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-semibold border border-accent/20">
-                    {experience.type}
-                  </span>
-                  <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                    <Calendar size={14} />
-                    {experience.duration}
+            <div className="relative backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 hover:bg-white/10 transition-all duration-300">
+              {/* Header Section */}
+              <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center text-cyan-400 shadow-lg">
+                    <Briefcase className="w-8 h-8" />
                   </div>
                 </div>
-                
-                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
-                  {experience.title}
-                </h3>
-                
-                <p className="text-xl text-muted-foreground font-medium mb-3">
-                  {experience.company}
-                </p>
-                
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <MapPin size={16} />
-                  {experience.location}
+
+                <div className="flex-grow">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <span className="px-3 py-1 bg-gradient-to-r from-cyan-600/20 to-purple-600/20 border border-cyan-500/30 text-cyan-300 rounded-full text-sm font-semibold">
+                      {experience.type}
+                    </span>
+                    <div className="flex items-center gap-1 text-white/70 text-sm">
+                      <Calendar size={14} />
+                      {experience.duration}
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    {experience.title}
+                  </h3>
+
+                  <p className="text-xl text-white/70 font-medium mb-3">
+                    {experience.company}
+                  </p>
+
+                  <div className="flex items-center gap-2 text-white/60">
+                    <MapPin size={16} />
+                    {experience.location}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Description */}
-            <motion.div
-              variants={itemVariants}
-              className="mb-8"
-            >
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              {/* Description */}
+              <p className="text-white/60 text-lg leading-relaxed mb-8">
                 {experience.description}
               </p>
-            </motion.div>
 
-            {/* Key Responsibilities */}
-            <motion.div
-              variants={itemVariants}
-              className="mb-8"
-            >
-              <h4 className="text-xl font-semibold text-primary mb-4 flex items-center gap-2">
-                <TrendingUp size={20} />
-                Key Responsibilities & Achievements
-              </h4>
-              <ul className="space-y-3">
-                {experience.responsibilities.map((responsibility, index) => (
-                  <motion.li
+              {/* Key Responsibilities */}
+              <div className="mb-8">
+                <h4 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  <TrendingUp size={20} />
+                  Key Responsibilities & Achievements
+                </h4>
+                <ul className="space-y-3">
+                  {experience.responsibilities.map((resp, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-start gap-3 text-white/70"
+                    >
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
+                      <span className="leading-relaxed">{resp}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Technologies Used */}
+              <div className="mb-8">
+                <h4 className="text-lg font-semibold text-white mb-4">
+                  Technologies & Tools
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {experience.technologies.map((tech, index) => (
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      whileHover={{ scale: 1.1, y: -4 }}
+                      className="px-4 py-2 bg-gradient-to-r from-cyan-600/20 to-purple-600/20 backdrop-blur-md border border-white/20 text-white rounded-full text-sm font-medium hover:from-cyan-500/30 hover:to-purple-500/30 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 cursor-default"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Achievements Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {experience.achievements.map((achievement, index) => (
+                  <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 text-muted-foreground"
+                    whileHover={{ scale: 1.08, y: -4 }}
+                    className="text-center backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300"
                   >
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                    <span className="leading-relaxed">{responsibility}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Technologies Used */}
-            <motion.div
-              variants={itemVariants}
-              className="mb-8"
-            >
-              <h4 className="text-lg font-semibold text-primary mb-4">
-                Technologies & Tools
-              </h4>
-              <div className="flex flex-wrap gap-3">
-                {experience.technologies.map((tech, index) => (
-                  <motion.span
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20 hover:bg-accent/20 transition-all duration-300"
-                  >
-                    {tech}
-                  </motion.span>
+                    <div className="text-cyan-400 font-bold text-sm mb-1">
+                      {achievement.split(' ')[0]}
+                    </div>
+                    <div className="text-white/60 text-xs">
+                      {achievement.split(' ').slice(1).join(' ')}
+                    </div>
+                  </motion.div>
                 ))}
               </div>
-            </motion.div>
-
-            {/* Key Achievements Grid */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4"
-            >
-              {experience.achievements.map((achievement, index) => (
-                <motion.div
-                  key={achievement}
-                  whileHover={{ scale: 1.05 }}
-                  className="text-center p-4 gradient-card rounded-xl border border-card-border"
-                >
-                  <div className="text-accent font-bold text-sm mb-1">
-                    {achievement.split(' ')[0]}
-                  </div>
-                  <div className="text-muted-foreground text-xs">
-                    {achievement.split(' ').slice(1).join(' ')}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
 
-        {/* Career Timeline Preview */}
+        {/* Looking Forward */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-20 text-center"
         >
-          <div className="gradient-card p-8 rounded-2xl border border-card-border inline-block">
-            <h3 className="text-xl font-semibold text-primary mb-4">
+          <div className="inline-block backdrop-blur-md bg-gradient-to-r from-cyan-600/10 to-purple-600/10 border border-cyan-500/20 rounded-3xl p-8 shadow-lg shadow-cyan-500/20">
+            <h3 className="text-xl font-semibold text-white mb-4">
               Looking Forward
             </h3>
-            <p className="text-muted-foreground max-w-md">
-              Eager to apply my skills in a challenging frontend development role 
+            <p className="text-white/70 max-w-md leading-relaxed">
+              Eager to apply my skills in a challenging full-stack or frontend development role 
               where I can contribute to innovative projects and continue growing as a developer.
             </p>
           </div>

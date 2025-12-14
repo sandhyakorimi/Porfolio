@@ -1,139 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import { motion } from 'framer-motion';
-// import { Menu, X } from 'lucide-react';
-
-// const Navbar = () => {
-//   const [isScrolled, setIsScrolled] = useState(false);
-//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setIsScrolled(window.scrollY > 50);
-//     };
-//     window.addEventListener('scroll', handleScroll);
-//     return () => window.removeEventListener('scroll', handleScroll);
-//   }, []);
-
-//   const navItems = [
-//     { name: 'Home', href: '#home' },
-//     { name: 'About', href: '#about' },
-//     { name: 'Skills', href: '#skills' },
-//     { name: 'Projects', href: '#projects' },
-//     { name: 'Education', href: '#education' },
-//     { name: 'Experience', href: '#experience' },
-//     { name: 'Contact', href: '#contact' },
-//   ];
-
-//   const scrollToSection = (href) => {
-//     const element = document.querySelector(href);
-//     if (element) {
-//       element.scrollIntoView({ behavior: 'smooth' });
-//       setIsMobileMenuOpen(false);
-//     }
-//   };
-
-//   return (
-//     <motion.nav
-//       initial={{ y: -100 }}
-//       animate={{ y: 0 }}
-//       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-//         isScrolled
-//           ? 'bg-background/95 backdrop-blur-md shadow-card border-b border-card-border'
-//           : 'bg-transparent'
-//       }`}
-//     >
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div className="flex justify-between items-center h-16">
-//           {/* Logo */}
-//           <motion.div
-//             initial={{ opacity: 0 }}
-//             animate={{ opacity: 1 }}
-//             transition={{ delay: 0.2 }}
-//             className="flex-shrink-0"
-//           >
-//             <a
-//               href="#home"
-//               onClick={(e) => {
-//                 e.preventDefault();
-//                 scrollToSection('#home');
-//               }}
-//               className="text-2xl font-bold gradient-primary bg-clip-text text-transparent"
-//             >
-//               Sandhya
-//             </a>
-//           </motion.div>
-
-//           {/* Desktop Navigation */}
-//           <div className="hidden md:block">
-//             <div className="ml-10 flex items-baseline space-x-4">
-//               {navItems.map((item, index) => (
-//                 <motion.a
-//                   key={item.name}
-//                   initial={{ opacity: 0, y: -20 }}
-//                   animate={{ opacity: 1, y: 0 }}
-//                   transition={{ delay: 0.3 + index * 0.1 }}
-//                   href={item.href}
-//                   onClick={(e) => {
-//                     e.preventDefault();
-//                     scrollToSection(item.href);
-//                   }}
-//                   className="text-foreground hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors relative group"
-//                 >
-//                   {item.name}
-//                   <span className="absolute inset-x-0 bottom-0 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-//                 </motion.a>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* Mobile menu button */}
-//           <div className="md:hidden">
-//             <button
-//               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-//               className="text-foreground hover:text-accent p-2"
-//             >
-//               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Mobile Navigation */}
-//         {isMobileMenuOpen && (
-//           <motion.div
-//             initial={{ opacity: 0, height: 0 }}
-//             animate={{ opacity: 1, height: 'auto' }}
-//             exit={{ opacity: 0, height: 0 }}
-//             className="md:hidden bg-background/95 backdrop-blur-md border-t border-card-border"
-//           >
-//             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-//               {navItems.map((item) => (
-//                 <a
-//                   key={item.name}
-//                   href={item.href}
-//                   onClick={(e) => {
-//                     e.preventDefault();
-//                     scrollToSection(item.href);
-//                   }}
-//                   className="text-foreground hover:text-accent hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium transition-colors"
-//                 >
-//                   {item.name}
-//                 </a>
-//               ))}
-//             </div>
-//           </motion.div>
-//         )}
-//       </div>
-//     </motion.nav>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -172,9 +36,10 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      transition={{ duration: 0.6 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-card border-b border-card-border'
+          ? 'bg-black/40 backdrop-blur-xl border-b border-white/10'
           : 'bg-transparent'
       }`}
     >
@@ -193,50 +58,40 @@ const Navbar = () => {
                 e.preventDefault();
                 scrollToSection('#home');
               }}
-              className={`text-2xl font-bold gradient-primary bg-clip-text ${
-                isScrolled ? 'text-foreground' : 'text-white'
-              }`}
+              className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
             >
               Sandhya
             </a>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors relative group ${
-                    isScrolled
-                      ? 'text-foreground hover:text-accent'
-                      : 'text-white hover:text-accent'
-                  }`}
-                >
-                  {item.name}
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-                </motion.a>
-              ))}
-            </div>
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item.name}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + index * 0.05 }}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
+                className="relative text-white/80 hover:text-white font-medium text-sm transition-all duration-300 group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              </motion.a>
+            ))}
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 ${
-                isScrolled ? 'text-foreground hover:text-accent' : 'text-white hover:text-accent'
-              }`}
+              className="p-2 text-white/80 hover:text-white transition-colors"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -244,12 +99,13 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-md border-t border-card-border"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden absolute top-16 left-0 right-0 bg-black/60 backdrop-blur-xl border-t border-white/10 shadow-2xl"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -258,11 +114,7 @@ const Navbar = () => {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    isScrolled
-                      ? 'text-foreground hover:text-accent hover:bg-secondary'
-                      : 'text-white hover:text-accent hover:bg-secondary'
-                  }`}
+                  className="block text-center text-white/90 hover:text-white text-lg font-medium py-3 rounded-lg hover:bg-white/5 transition-all duration-200"
                 >
                   {item.name}
                 </a>

@@ -81,6 +81,18 @@ module.exports = {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
         },
+        // New: Flowing gradient animation for name
+        gradient: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        // Optional: slower ping for background blobs
+        "ping-slow": {
+          "75%, 100%": {
+            transform: "scale(2)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -88,6 +100,13 @@ module.exports = {
         float: "float 6s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite",
         "gradient-shift": "gradient-shift 3s ease infinite",
+        // New animations
+        gradient: "gradient 8s ease infinite",
+        "ping-slow": "ping-slow 8s cubic-bezier(0, 0, 0.2, 1) infinite",
+      },
+      // Required for smooth gradient animation
+      backgroundSize: {
+        "200": "200% 200%",
       },
     },
   },
