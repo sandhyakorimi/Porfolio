@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import oneStopImage from '@/assets/project-OneStop.png';
 import eventoraImage from '@/assets/project-eventora.png';
 import etrackImage from '@/assets/project-etrack.png';
+import portfolio from '@/assets/portfolio.png'
 
 const Projects = () => {
   const projects = [
@@ -51,6 +52,21 @@ const Projects = () => {
       ],
       liveUrl: 'https://e-track-project.vercel.app/',
       githubUrl: 'https://github.com/sandhyakorimi/Etrack_Management'
+    },
+    {
+      title: 'Portfolio - Website',
+      description: 'A personal portfolio website showcasing my projects, skills, and experience with a responsive and modern design.',
+      image: portfolio,
+      technologies: ['React', 'JavaScript', 'Tailwind Css'],
+      duration: 'November 2025 - December 2025',
+      highlights: [
+        'Clean User Interface',
+        'Fast Navigation Experience',
+        'Professional Web Presence',
+        'Responsive Modern Design'
+      ],
+      liveUrl: 'https://porfolio-eta-indol.vercel.app/',
+      githubUrl: 'https://github.com/sandhyakorimi/Porfolio'
     }
   ];
 
