@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import oneStopImage from '@/assets/project-OneStop.png';
 import eventoraImage from '@/assets/project-eventora.png';
 import etrackImage from '@/assets/project-etrack.png';
-import portfolio from '@/assets/portfolio.png'
+import portfolio from '@/assets/portfolio.png';
+import SpamGuard from '@/assets/SpamGuard.png';
 
 const Projects = () => {
   const projects = [
@@ -67,6 +68,21 @@ const Projects = () => {
       ],
       liveUrl: 'https://porfolio-eta-indol.vercel.app/',
       githubUrl: 'https://github.com/sandhyakorimi/Porfolio'
+    },
+    {
+      title: 'SpamGuard AI',
+      description: 'Built a full-stack spam email detection system using Naive Bayes (Python & Flask) with REST APIs and a React (Vite) frontend to classify emails as Spam or Ham in real time.',
+      image: SpamGuard,
+      technologies: ['Python', 'Flask', 'ML', 'Bag of Words', 'REST APIs', 'React'],
+      duration: 'December 2025',
+      highlights: [
+        'Detects whether an email is Spam or Not Spam',
+        'Uses a machine learning model (Naive Bayes) to analyze email text',
+        'Backend built with Python and Flask',
+        'Gives fast results by using a pre-trained model'
+      ],
+      liveUrl: 'https://porfolio-eta-indol.vercel.app/',
+      githubUrl: 'https://github.com/sandhyakorimi/Spam-Mail-Detection'
     }
   ];
 
